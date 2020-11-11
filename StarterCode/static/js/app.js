@@ -54,5 +54,29 @@ function buildCharts(sample) {
   });
 }
 
+function buildMetadata(sample) {
+  d3.json("samples.json").then((data) => {
+    var metadata = data.metadata;
+    var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
+    var result = resultArray[0];
+    // Use d3 to select sample-metadata
+    var sampleMeta = d3.select("#sample-metadata");
+
+    // Use .html("") to clear existing data
+    sampleMeta.html("");
+
+    // Use Object.entries to add each key and value pair
+        Object.entries(result).forEach(([key, value]) => {
+      sampleMeta.append("h6").text(`${key}: ${value}`);
+    });
+  });
+}
+
+function optionChanged(newSample) {
+  // Change data in charts and graphs based on selected Subject ID
+  buildCharts(newSample);
+  buildMetadata(newSample);
+}
+
 // Run init function
 init();
