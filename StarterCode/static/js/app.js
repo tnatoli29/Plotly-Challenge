@@ -16,6 +16,7 @@ function init() {
     //Build the charts with the first sample
     var firstSample = names[0];
     buildCharts(firstSample);
+    buildMetadata(firstSample);
   });
 }
 
