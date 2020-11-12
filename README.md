@@ -22,8 +22,11 @@
 
   Use otu_labels for the text values.
   
+
 3. Display the sample metadata, i.e., an individual's demographic information.
 
+
 4. Display each key-value pair from the metadata JSON object somewhere on the page.
+
 
 5. Update all of the plots any time that a new sample is selected.
